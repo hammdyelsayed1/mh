@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تواصل معنا</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1>تواصل معنا</h1>
+</header>
+
+<section class="box">
+  <p>📞 واتساب: 0549491055</p>
+
+  <a class="whatsapp"
+     href="https://wa.me/966549491055"
+     target="_blank">
+     تواصل واتساب مباشرة
+  </a>
+
+
+
+
+<!-- ===== Contact Form ===== -->
+<style>
+.contact-form{
+ 
+  max-width:100%;
+  margin:30px auto;
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contact-form h3{
+  text-align:center;
+  color:#0a4da3;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.contact-form button{
+  width:100%;
+  padding:14px;
+  background:#0a4da3;
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.confirmation{
+  display:none;
+  margin-top:15px;
+  padding:15px;
+  background:#e8f9ee;
+  color:#1b7a3d;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+}
+</style>
+
+<div class="contact-form">
+  <h3>تواصل معنا</h3>
+
+  <form onsubmit="sendWhatsAppForm();return false;">
+    <input id="f_name" type="text" placeholder="الاسم" required>
+    <input id="f_phone" type="tel" placeholder="رقم الجوال" required>
+    <textarea id="f_message" placeholder="رسالتك"></textarea>
+    <button type="submit">إرسال</button>
+  </form>
+
+  <div class="confirmation" id="formConfirm">
+    ✅ تم إرسال رسالتك بنجاح
+  </div>
+</div>
+
+<script>
+function sendWhatsAppForm(){
+  const n=f_name.value;
+  const p=f_phone.value;
+  const m=f_message.value;
+
+  window.open(
+    "https://wa.me/966549491055?text=الاسم:"+n+"%0Aالجوال:"+p+"%0Aالرسالة:"+m,
+    "_blank"
+  );
+
+  document.getElementById("formConfirm").style.display="block";
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3>موقعنا</h3>
+  <iframe
+    src="https://www.google.com/maps?q=Jeddah&output=embed"
+    width="100%" height="300"
+    style="border-radius:15px;border:0;">
+  </iframe>
+</section>
+
+
+
+
+
+
+<a href="index.html" class="fixed-home">🏠</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== Floating WhatsApp Button with Tooltip ===== -->
+<style>
+
+
+/* ===== Footer Styling ===== */
+.footer{
+  background:linear-gradient(135deg, #000000, #0a2540);
+  color:#fff;
+  padding:50px 20px;
+  margin-top:60px;
+}
+
+.footer h3,
+.footer h4{
+  color:#f5a623;
+  margin-bottom:15px;
+}
+
+.footer p,
+.footer li,
+.footer span{
+  color:#ccc;
+  line-height:1.8;
+}
+
+.footer a{
+  color:#ccc;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+
+.footer a:hover{
+  color:#25D366;
+}
+
+/* ===== Social Icons ===== */
+.footer-social{
+  display:flex;
+  gap:15px;
+  margin-top:15px;
+}
+
+.footer-social a{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s ease;
+}
+
+.footer-social a img{
+  width:22px;
+}
+
+/* Hover Animation */
+.footer-social a:hover{
+  background:#25D366;
+  transform:translateY(-6px) scale(1.1);
+  box-shadow:0 10px 20px rgba(37,211,102,0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.whatsapp-wrapper{
+  position:fixed;
+  bottom:25px;
+  left:20px;
+  z-index:9999;
+
+  opacity:0;
+  visibility:hidden;
+  transform:scale(0.7);
+  transition:0.4s ease;
+}
+
+.whatsapp-wrapper.show{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1);
+}
+
+/* زر الواتساب */
+.whatsapp-float{
+  position:relative;
+  width:65px;
+  height:65px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* أيقونة */
+.whatsapp-float img{
+  width:36px;
+  height:36px;
+  z-index:2;
+}
+
+/* الموجات */
+.whatsapp-float::before,
+.whatsapp-float::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:rgba(37,211,102,0.4);
+  animation:pulse 2.5s infinite;
+}
+
+.whatsapp-float::after{
+  animation-delay:1.2s;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:0.6;}
+  100%{transform:scale(2.2);opacity:0;}
+}
+
+/* التولتيب */
+.whatsapp-text{
+  position:absolute;
+  left:80px;
+  top:50%;
+  transform:translateY(-50%);
+  background:#25D366;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:30px;
+  font-size:14px;
+  font-weight:bold;
+  white-space:nowrap;
+  opacity:0;
+  transition:0.3s;
+}
+
+/* يظهر عند الهوفر */
+.whatsapp-wrapper:hover .whatsapp-text{
+  opacity:1;
+}
+</style>
+
+<div class="whatsapp-wrapper" id="whatsappWrapper">
+
+  <a href="https://wa.me/966549491055?text=مرحبا%20اريد%20الاستفسار%20عن%20خدمة%20نقل%20العفش"
+     target="_blank"
+     class="whatsapp-float"
+     aria-label="WhatsApp">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <div class="whatsapp-text">تواصل معنا</div>
+</div>
+
+<script>
+/* يظهر بعد السكرول */
+const whatsappWrapper = document.getElementById("whatsappWrapper");
+
+window.addEventListener("scroll", () => {
+  if(window.scrollY > 250){
+    whatsappWrapper.classList.add("show");
+  } else {
+    whatsappWrapper.classList.remove("show");
+  }
+});
+</script>
+
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Company -->
+    <div>
+      <h3>شركة بسمة جدة</h3>
+      <p>
+        شريكك الموثوق لنقل العفش داخل جدة وجميع مدن المملكة العربية السعودية
+        بأعلى معايير الأمان والاحترافية.
+      </p>
+
+      <div class="footer-social">
+        <a href="#">📷</a>
+        <a href="#">f</a>
+        <a href="#">🐦</a>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h3>الخدمات</h3>
+      <ul>
+        <li>نقل أثاث منزلي</li>
+        <li>نقل مكاتب وشركات</li>
+        <li>فك وتركيب الأثاث</li>
+        <li>تغليف وتخزين</li>
+      </ul>
+    </div>
+
+    <!-- Work Hours -->
+    <div>
+      <h3>ساعات العمل</h3>
+      <div class="work-hours">
+        <span>السبت – الخميس: 8 ص – 12 م</span>
+        <span>الجمعة: 2 م – 12 ص</span>
+      </div>
+
+      <div class="emergency">
+        🚨 خدمة الطوارئ 24 ساعة
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © جميع الحقوق محفوظة | شركة بسمة جدة لنقل العفش
+  </div>
+</footer>
+
+
+</body>
+</html>
